@@ -1,0 +1,11 @@
+{
+  "name": "resolve-semver",
+  "version": "0.0.1",
+  "dependencies": {
+    "object-values": "~1.0.0",
+    "semver": "~3.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.4"
+  }
+}
