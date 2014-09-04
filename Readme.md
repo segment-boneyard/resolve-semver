@@ -7,14 +7,6 @@ Given a set of semvers strings and a set of available versions, map each semver 
 
 ## Installation
 
-Duo:
-
-```js
-var resolve = require('segmentio/resolve-semver');
-```
-
-Node:
-
 ```
 $ npm install resolve-semver
 ```
