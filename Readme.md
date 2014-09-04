@@ -1,7 +1,9 @@
 
 # resolve-semver
 
-Given a set of semvers and a set of specific versions, map each semver to the specific version that most optimally satisfies the set of semvers.
+Resolve a set of semver constraints with the fewest versions possible.
+
+Given a set of semvers strings and a set of available versions, map each semver string to an available version in the set so that the fewest number of available versions are actually used.
 
 ## Installation
 
@@ -26,24 +28,52 @@ Returns a map with semvers as keys, and the specific version as value.
 ```js
 var versions = [
   '1.1.1',
+  '1.5.6',
   '1.5.8',
-  '1.9.7',
-  '1.5.6'
+  '1.9.7'
 ];
 
 var semvers = [
+  '',
+  '*',
+  'x',
   '1',
   '1.x',
+  '1.*',
+  '~1',
+  '^1',
+  '1.5',
+  '1.5.*',
   '1.5.x',
+  '~1.5',
+  '^1.4',
+  '<1.5.9',
+  '<=1.5.6',
+  '>1.4.0',
+  '>=1.5.6',
   '~1.5.5',
   '^1.0.0',
   '1.5.6'
 ];
 
 assert.deepEqual(resolve(semvers, versions), {
+  '': '1.5.6',
+  '*': '1.5.6',
+  'x': '1.5.6',
   '1': '1.5.6',
   '1.x': '1.5.6',
+  '1.*': '1.5.6',
+  '~1': '1.5.6',
+  '^1': '1.5.6',
+  '1.5': '1.5.6',
+  '1.5.*': '1.5.6',
   '1.5.x': '1.5.6',
+  '~1.5': '1.5.6',
+  '^1.4': '1.5.6',
+  '<1.5.9': '1.5.6',
+  '<=1.5.6': '1.5.6',
+  '>1.4.0': '1.5.6',
+  '>=1.5.6': '1.5.6',
   '~1.5.5': '1.5.6',
   '^1.0.0': '1.5.6',
   '1.5.6': '1.5.6'
